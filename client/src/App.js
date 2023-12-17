@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import './index.css';
-import HomePage from './components/HomePage';
+import React, { useState } from 'react'
+import './index.css'
+import HomePage from './components/HomePage'
 
-function App() {
-  const [words, setWords] = useState([]);
-  const [inputValue, setInputValue] = useState('');
+function App () {
+  const [words, setWords] = useState([])
+  const [inputValue, setInputValue] = useState('')
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className='flex items-center justify-center h-screen'>
       <HomePage
         words={words}
         setWords={setWords}
@@ -15,7 +15,7 @@ function App() {
         setInputValue={setInputValue}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
