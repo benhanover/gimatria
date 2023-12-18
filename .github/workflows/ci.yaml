@@ -1,27 +1,45 @@
-name: Continuous Intergration Workflow
+name: Continuous Integration Workflow
 
 on:
-    push:
-        branches:
-            - v0.5-frontend
-        paths:
-            - 'client/**'
+  push:
+    branches:
+      - v0.5-frontend
+    paths:
+      - 'client/**'
 
 jobs:
-    # Run the linter to check for code style issues
-    lint:
-        name: 'Run linter'
-        defaults:
-            run:
-                shell: bash
-                working-directory: ./client
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-              name: 'Checkout repository'
+  # Run the linter to check for code style issues
+  lint:
+    name: 'Run linter'
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: 'Checkout repository'
 
-            - name: 'Install Dependencies'
-              run: npm install
+      - name: 'Install Dependencies'
+        run: npm install
 
-            - name: 'Run Linter'
-              run: npx standard -v
+      - name: 'Run Linter'
+        run: npx standard -v
+
+  # Run tests
+  test:
+    name: 'Run tests'
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: 'Checkout repository'
+
+      - name: 'Install Dependencies'
+        run: npm install
+
+      - name: 'Run Tests'
+        run: npm test
