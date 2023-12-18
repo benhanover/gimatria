@@ -9,7 +9,7 @@ function HomePage ({ words, setWords, inputValue, setInputValue }) {
       .get('http://localhost:5000/api/data')
       .then((response) => {
         // Set the data in the state
-        setWords(response.data)
+        setWords(response.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error)
