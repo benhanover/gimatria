@@ -44,8 +44,5 @@
     "env": [
       "jest"
     ]
-  },
-  "scripts": {
-    "lint": "standard"
   }
 }
